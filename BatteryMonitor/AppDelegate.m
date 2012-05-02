@@ -14,9 +14,12 @@
 
 @synthesize window = _window;
 @synthesize mainViewController = _mainViewController;
+@synthesize monitorBattery = _monitorBattery;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.monitorBattery = NO;
+    [self setMonitorBattery:YES];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];

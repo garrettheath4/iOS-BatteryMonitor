@@ -10,6 +10,9 @@
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *levelLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stateLevel;
+
 - (IBAction)showInfo:(id)sender;
 
 @end

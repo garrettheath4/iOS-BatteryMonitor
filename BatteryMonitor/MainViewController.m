@@ -13,6 +13,8 @@
 @end
 
 @implementation MainViewController
+@synthesize levelLabel;
+@synthesize stateLevel;
 
 
 - (void)viewDidLoad
@@ -23,6 +25,8 @@
 
 - (void)viewDidUnload
 {
+    [self setLevelLabel:nil];
+    [self setStateLevel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

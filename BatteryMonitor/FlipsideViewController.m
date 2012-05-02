@@ -15,6 +15,7 @@
 @implementation FlipsideViewController
 
 @synthesize delegate = _delegate;
+@synthesize toggleSwitch = _toggleSwitch;
 
 - (void)viewDidLoad
 {
@@ -24,6 +25,7 @@
 
 - (void)viewDidUnload
 {
+    [self setToggleSwitch:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

@@ -17,6 +17,7 @@
 @interface FlipsideViewController : UIViewController
 
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UISwitch *toggleSwitch;
 
 - (IBAction)done:(id)sender;
 

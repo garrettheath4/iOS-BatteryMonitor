@@ -132,6 +132,7 @@
 		68FB44011550709700840D17 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = BM;
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Washington and Lee University";
 			};
