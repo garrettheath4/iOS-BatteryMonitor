@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 Washington and Lee University. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "MainViewController.h"
 
 @interface MainViewController ()
@@ -29,6 +30,26 @@
     [self setStateLevel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    UIDevice *device = [UIDevice currentDevice];
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    device.batteryMonitoringEnabled = appDelegate.monitorBattery;
+    
+    if (device.batteryMonitoringEnabled) {
+        // Get the name of the notifications from the AppDelegate
+        // levelNotificationName should be @"UIDeviceBatteryLevelDidChangeNotification"
+        // stateNotificationName should be @"UIDeviceBatteryStateDidChangeNotification"
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryChanged:) name:[appDelegate levelNotificationName] object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryChanged:) name:[appDelegate stateNotificationName] object:nil];
+    } else {
+        
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:[appDelegate levelNotificationName] object:nil];
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:[appDelegate stateNotificationName] object:nil];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

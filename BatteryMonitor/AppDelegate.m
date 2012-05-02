@@ -15,11 +15,14 @@
 @synthesize window = _window;
 @synthesize mainViewController = _mainViewController;
 @synthesize monitorBattery = _monitorBattery;
+@synthesize levelNotificationName = _levelNotificationName;
+@synthesize stateNotificationName = _stateNotificationName;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.monitorBattery = NO;
-    [self setMonitorBattery:YES];
+    self.levelNotificationName = @"UIDeviceBatteryLevelDidChangeNotification";
+    self.stateNotificationName = @"UIDeviceBatteryStateDidChangeNotification";
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.mainViewController = [[MainViewController alloc] initWithNibName:@"MainViewController" bundle:nil];

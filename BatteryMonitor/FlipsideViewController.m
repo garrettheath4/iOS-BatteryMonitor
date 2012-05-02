@@ -7,6 +7,7 @@
 //
 
 #import "FlipsideViewController.h"
+#import "AppDelegate.h"
 
 @interface FlipsideViewController ()
 
@@ -20,7 +21,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.title = @"Preferences";
+    AppDelegate *appDeligate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    self.toggleSwitch.on = appDeligate.monitorBattery;
 }
 
 - (void)viewDidUnload
@@ -39,6 +42,8 @@
 
 - (IBAction)done:(id)sender
 {
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    appDelegate.monitorBattery = self.toggleSwitch.on;
     [self.delegate flipsideViewControllerDidFinish:self];
 }
 

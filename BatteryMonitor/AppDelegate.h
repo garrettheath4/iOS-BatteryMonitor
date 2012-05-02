@@ -16,6 +16,8 @@
 
 @property (strong, nonatomic) MainViewController *mainViewController;
 
+@property (nonatomic) NSString *levelNotificationName;
+@property (nonatomic) NSString *stateNotificationName;
 @property (nonatomic) BOOL monitorBattery;
 
 @end
