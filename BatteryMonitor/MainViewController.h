@@ -17,7 +17,7 @@
 
 - (void)batteryChanged:(NSNotification *)note;
 
-- (NSString *)batteryLevel;
-- (NSString *)batteryState:(UIDeviceBatteryState )batteryState;
+- (NSString *)batteryLevel:(UIDevice *)device;
+- (NSString *)batteryState:(UIDevice *)device;
 
 @end
